@@ -19,6 +19,9 @@
 %include "std_set.i"
 %include "std_vector.i"
 %include "std_pair.i"
+
+%template() std::pair<string,string>;
+
 %template(PairVector)std::vector<std::pair<std::string,std::string>>;
 
 %ignore SparseConstraints::operator=;

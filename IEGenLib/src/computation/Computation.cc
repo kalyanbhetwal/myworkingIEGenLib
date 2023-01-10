@@ -65,7 +65,7 @@ Computation::Computation(const std::string& name) {
 }
 
 Computation::~Computation() {
-    clear();
+    //clear();
 }
 
 Computation::Computation(const Computation& other) { *this = other; }
@@ -169,138 +169,13 @@ void Computation::addStmt(Stmt* stmt, int stmtIdx) {
     if (!stmt->isDelimited()) {
         delimitDataSpacesInStmt(stmt);
     }
+    Stmt* stmtCpy = new Stmt(*stmt);
     // TODO: if stmtIdx < stmts.size(), update later execution schedules
-    stmts.insert(stmts.begin() + stmtIdx, stmt);
+    stmts.insert(stmts.begin() + stmtIdx, stmtCpy);
     //enforceArraySSA(stmt);
     stmtIdx = locatePhiNodes(stmtIdx);
     enforceSSA(stmtIdx);
 }
-
-/*
-void Computation::enforceArraySSA(Stmt* stmt) {
-    // We don't want to do any array SSA enforcing for array accesses
-    if (stmt->isArrayAccess()) {
-//        std::cerr << "Skipped Array SSA {\n"
-//                  << stmt->prettyPrintString() << "}" << std::endl;
-        return;
-    }
-    for (int i = 0; i < stmt->getNumReads(); i++) {
-        if (!enforceArraySSA(stmt, i, true)) { return; }
-    }
-    for (int i = 0; i < stmt->getNumWrites(); i++) {
-        if (!enforceArraySSA(stmt, i, false)) { return; }
-    }
-}
-
-bool Computation::enforceArraySSA(Stmt* stmt, int dataIdx, bool isRead) {
-    // Get the data space and scheduling function
-    std::string dataSpace = isRead ? stmt->getReadDataSpace(dataIdx) :
-                                     stmt->getWriteDataSpace(dataIdx);
-    Relation* schedFunc = isRead ? stmt->getReadRelation(dataIdx) :
-                                   stmt->getWriteRelation(dataIdx);
-//    std::cerr << "Renaming " << dataSpace << " with "
-//              << (isRead ? "read" : "write") << " access: "
-//              << schedFunc->prettyPrintString() << std::endl;
-
-    // Get all constant elements in the relation tuple
-    // If an iterator is found, remove all clear the list
-    TupleDecl decl = schedFunc->getTupleDecl();
-    std::list<int> accessVals;
-    for (int i = schedFunc->inArity(); i < decl.size(); i++) {
-        if (!decl.elemIsConst(i)) {
-//            std::cerr << "Iterator Access Detected" << std::endl;
-            accessVals.clear();
-            break;
-        } else {
-            accessVals.push_back(decl.elemConstVal(i));
-        }
-    }
-
-    // If accessVals = {0}, check that it's actually an array access
-    std::string srcCode = stmt->getStmtSourceCode();
-    if (accessVals.size() == 1 && accessVals.front() == 0 &&
-        srcCode.find(dataSpace + "[0]") == std::string::npos) { return true; }
-
-    // Update the map of arrays
-    auto it = arrays.find(dataSpace);
-    if (it == arrays.end()) {
-        arrays[dataSpace] = !accessVals.empty();
-    } else if (accessVals.empty() == it->second) {
-        std::cerr << "Error: " << dataSpace << " has both constant and iterator accesses!"
-                  << "\n\tArrays cannot have both constant and iterator accesses." << std::endl;
-        return false;
-    }
-
-    // Handle constant accesses
-    if (!accessVals.empty()) {
-        // Get the new data space name and the access string for the array
-        std::ostringstream name, access, tuple;
-        name << trimDataSpaceName(dataSpace);
-        tuple << "[";
-        for (auto it = accessVals.begin(); it != accessVals.end(); it++) {
-            name << ARR_ACCESS_STR << *it;
-            access << "[" << *it << "]";
-            if (it != accessVals.begin()) { tuple << ", "; }
-            tuple << *it;
-        }
-        tuple << "]";
-//        std::cerr << "Array Access: " << access.str() << std::endl;
-//        std::cerr << "Access Tuple: " << tuple.str() << std::endl;
-        std::string newDataSpace = Computation::delimitDataSpaceName(name.str());
-//        std::cerr << "New Name: " << newDataSpace << std::endl;
-        // This array has not been accessed in this way before
-        if (!isDataSpace(newDataSpace)) {
-            // Add the rename as a data space
-            if (isParameter(dataSpace)) {
-                addParameter(newDataSpace, getDataSpaceType(dataSpace));
-            } else {
-                addDataSpace(newDataSpace, getDataSpaceType(dataSpace));
-            }
-            // Access was read before being written, so we need to initialize it
-            if (isRead) {
-                // Assign the array access to the new data space
-                Stmt* arrAccessStmt = new Stmt(
-                    newDataSpace + " = " + dataSpace + access.str() + ";",
-                    stmt->getIterationSpace()->prettyPrintString(),
-                    stmt->getExecutionSchedule()->prettyPrintString(),
-                    {{dataSpace, "{[0]->" + tuple.str() + "}"}},
-                    {{newDataSpace, "{[0]->[0]}"}}
-                );
-                arrAccessStmt->setDelimited();
-                arrAccessStmt->setArrayAccess(true);
-                addStmt(arrAccessStmt);
-//                std::cerr << "Added Array Access Statement {\n"
-//                          << arrAccessStmt->prettyPrintString() << "}" << std::endl;
-            }
-        }
-        // Update our current statement
-//        std::cerr << "Code: " << stmt->getStmtSourceCode();
-        stmt->setStmtSourceCode(iegenlib::replaceInString(
-                                    stmt->getStmtSourceCode(),
-                                    dataSpace+access.str(), newDataSpace));
-//        std::cerr << "\n\t-> " << stmt->getStmtSourceCode() << std::endl;
-
-        // Update other reads/writes - we can no longer identify this array access
-        // in the source code
-        if (isRead) { stmt->updateRead(dataIdx, newDataSpace, "{[0]->[0]}"); }
-        else { stmt->updateWrite(dataIdx, newDataSpace, "{[0]->[0]}"); }
-        int ub = isRead ? stmt->getNumWrites() : stmt->getNumReads();
-        for (int i = 0; i < ub; i++) {
-            std::string dsName = isRead ? stmt->getWriteDataSpace(i) :
-                                          stmt->getReadDataSpace(i);
-            if (dsName == dataSpace) {
-                if (isRead) { stmt->updateWrite(i, newDataSpace, "{[0]->[0]}"); }
-                else { stmt->updateRead(i, newDataSpace, "{[0]->[0]}"); }
-            }
-        }
-//        std::cerr << "Array SSA Statement {\n"
-//                  << stmt->prettyPrintString() << "}" << std::endl;
-    }
-
-    return true;
-}
-*/
-
 void Computation::enforceSSA(int stmtIdx) {
     if (stmtIdx < 0 || stmtIdx >= getNumStmts()) { return; }
 

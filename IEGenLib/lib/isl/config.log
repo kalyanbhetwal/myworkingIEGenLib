@@ -39,7 +39,7 @@ PATH: /usr/local/apps/DataGrip/bin
 PATH: /usr/local/apps/clion/bin
 PATH: /usr/local/eclipse
 PATH: /home/KALYANBHETWAL/.vscode-server/bin/d045a5eda657f4d7b676dedbfa7aab8207f8a075/bin/remote-cli
-PATH: /home/KALYANBHETWAL/anaconda3/envs/iegenlib/bin
+PATH: /home/KALYANBHETWAL/anaconda3/bin
 PATH: /home/KALYANBHETWAL/anaconda3/condabin
 PATH: /home/KALYANBHETWAL/.local/bin
 PATH: /home/KALYANBHETWAL/bin
@@ -365,7 +365,7 @@ configure:5466: gcc -o conftest -O3 -fomit-frame-pointer -malign-double -fstrict
 configure:5466: $? = 0
 configure:5466: ./conftest
 configure:5466: $? = 0
-configure:5476: result: 50654:2a200800:7ffefbff:bfebfbff
+configure:5476: result: 50654:24200800:7ffefbff:bfebfbff
 configure:5690: checking whether C compiler accepts -march=pentium2
 configure:5705: gcc -c -march=pentium2  conftest.c >&5
 cc1: error: CPU you selected does not support x86-64 instruction set
@@ -726,26 +726,26 @@ configure:12022: result: yes
 configure:12262: checking dynamic linker characteristics
 configure:12843: gcc -o conftest -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math   -Wl,-rpath -Wl,/foo conftest.c  >&5
 configure:12843: $? = 0
-configure:13083: result: GNU/Linux ld.so
-configure:13205: checking how to hardcode library paths into programs
-configure:13230: result: immediate
-configure:13778: checking whether stripping libraries is possible
-configure:13783: result: yes
-configure:13818: checking if libtool supports shared libraries
-configure:13820: result: yes
-configure:13823: checking whether to build shared libraries
-configure:13848: result: no
-configure:13851: checking whether to build static libraries
-configure:13855: result: yes
-configure:13878: checking how to run the C++ preprocessor
-configure:13905: g++ -E  conftest.cpp
-configure:13905: $? = 0
-configure:13919: g++ -E  conftest.cpp
+configure:13080: result: GNU/Linux ld.so
+configure:13202: checking how to hardcode library paths into programs
+configure:13227: result: immediate
+configure:13775: checking whether stripping libraries is possible
+configure:13780: result: yes
+configure:13815: checking if libtool supports shared libraries
+configure:13817: result: yes
+configure:13820: checking whether to build shared libraries
+configure:13845: result: no
+configure:13848: checking whether to build static libraries
+configure:13852: result: yes
+configure:13875: checking how to run the C++ preprocessor
+configure:13902: g++ -E  conftest.cpp
+configure:13902: $? = 0
+configure:13916: g++ -E  conftest.cpp
 conftest.cpp:25:10: fatal error: ac_nonexistent.h: No such file or directory
  #include <ac_nonexistent.h>
           ^~~~~~~~~~~~~~~~~~
 compilation terminated.
-configure:13919: $? = 1
+configure:13916: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "isl"
@@ -772,15 +772,15 @@ configure: failed program was:
 | #define LT_OBJDIR ".libs/"
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:13944: result: g++ -E
-configure:13964: g++ -E  conftest.cpp
-configure:13964: $? = 0
-configure:13978: g++ -E  conftest.cpp
+configure:13941: result: g++ -E
+configure:13961: g++ -E  conftest.cpp
+configure:13961: $? = 0
+configure:13975: g++ -E  conftest.cpp
 conftest.cpp:25:10: fatal error: ac_nonexistent.h: No such file or directory
  #include <ac_nonexistent.h>
           ^~~~~~~~~~~~~~~~~~
 compilation terminated.
-configure:13978: $? = 1
+configure:13975: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "isl"
@@ -807,81 +807,81 @@ configure: failed program was:
 | #define LT_OBJDIR ".libs/"
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:14140: checking for ld used by g++
-configure:14207: result: /usr/bin/ld -m elf_x86_64
-configure:14214: checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld
-configure:14229: result: yes
-configure:14284: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
-configure:15357: result: yes
-configure:15393: g++ -c -g -O2  conftest.cpp >&5
-configure:15396: $? = 0
-configure:15877: checking for g++ option to produce PIC
-configure:15884: result: -fPIC -DPIC
-configure:15892: checking if g++ PIC flag -fPIC -DPIC works
-configure:15910: g++ -c -g -O2  -fPIC -DPIC -DPIC conftest.cpp >&5
-configure:15914: $? = 0
-configure:15927: result: yes
-configure:15950: checking if g++ static flag -static works
-configure:15978: result: no
-configure:15990: checking if g++ supports -c -o file.o
-configure:16011: g++ -c -g -O2  -o out/conftest2.o conftest.cpp >&5
-configure:16015: $? = 0
-configure:16037: result: yes
-configure:16042: checking if g++ supports -c -o file.o
-configure:16089: result: yes
-configure:16119: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
-configure:16159: result: yes
-configure:16300: checking dynamic linker characteristics
-configure:17048: result: GNU/Linux ld.so
-configure:17113: checking how to hardcode library paths into programs
-configure:17138: result: immediate
-configure:17202: checking for perl
-configure:17218: found /usr/bin/perl
-configure:17229: result: perl
-configure:17239: checking for pdflatex
-configure:17269: result: no
-configure:17276: checking for pod2html
-configure:17306: result: no
-configure:17322: checking for stdint types
-configure:17345: gcc -c   conftest.c >&5
-configure:17345: $? = 0
-configure:17389: result: stdint.h (shortcircuit)
-configure:17776: result: make use of stdint.h in include/isl/stdint.h (assuming C99 compatible system)
-configure:18041: checking imath.h usability
-configure:18041: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math -I./imath_wrap  conftest.c >&5
-configure:18041: $? = 0
-configure:18041: result: yes
-configure:18041: checking imath.h presence
-configure:18041: gcc -E -I./imath_wrap  conftest.c
-configure:18041: $? = 0
-configure:18041: result: yes
-configure:18041: checking for imath.h
-configure:18041: result: yes
-configure:18049: checking gmp_compat.h usability
-configure:18049: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math -I./imath_wrap  conftest.c >&5
-configure:18049: $? = 0
-configure:18049: result: yes
-configure:18049: checking gmp_compat.h presence
-configure:18049: gcc -E -I./imath_wrap  conftest.c
-configure:18049: $? = 0
-configure:18049: result: yes
-configure:18049: checking for gmp_compat.h
-configure:18049: result: yes
-configure:18107: checking whether ffs is declared
-configure:18107: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
-configure:18107: $? = 0
-configure:18107: result: yes
-configure:18119: checking whether __builtin_ffs is declared
-configure:18119: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
-configure:18119: $? = 0
-configure:18119: result: yes
-configure:18130: checking whether _BitScanForward is declared
-configure:18130: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
+configure:14137: checking for ld used by g++
+configure:14204: result: /usr/bin/ld -m elf_x86_64
+configure:14211: checking if the linker (/usr/bin/ld -m elf_x86_64) is GNU ld
+configure:14226: result: yes
+configure:14281: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+configure:15354: result: yes
+configure:15390: g++ -c -g -O2  conftest.cpp >&5
+configure:15393: $? = 0
+configure:15874: checking for g++ option to produce PIC
+configure:15881: result: -fPIC -DPIC
+configure:15889: checking if g++ PIC flag -fPIC -DPIC works
+configure:15907: g++ -c -g -O2  -fPIC -DPIC -DPIC conftest.cpp >&5
+configure:15911: $? = 0
+configure:15924: result: yes
+configure:15947: checking if g++ static flag -static works
+configure:15975: result: no
+configure:15987: checking if g++ supports -c -o file.o
+configure:16008: g++ -c -g -O2  -o out/conftest2.o conftest.cpp >&5
+configure:16012: $? = 0
+configure:16034: result: yes
+configure:16039: checking if g++ supports -c -o file.o
+configure:16086: result: yes
+configure:16116: checking whether the g++ linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
+configure:16156: result: yes
+configure:16297: checking dynamic linker characteristics
+configure:17042: result: GNU/Linux ld.so
+configure:17107: checking how to hardcode library paths into programs
+configure:17132: result: immediate
+configure:17196: checking for perl
+configure:17212: found /usr/bin/perl
+configure:17223: result: perl
+configure:17233: checking for pdflatex
+configure:17263: result: no
+configure:17270: checking for pod2html
+configure:17300: result: no
+configure:17316: checking for stdint types
+configure:17339: gcc -c   conftest.c >&5
+configure:17339: $? = 0
+configure:17383: result: stdint.h (shortcircuit)
+configure:17770: result: make use of stdint.h in include/isl/stdint.h (assuming C99 compatible system)
+configure:18035: checking imath.h usability
+configure:18035: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math -I./imath_wrap  conftest.c >&5
+configure:18035: $? = 0
+configure:18035: result: yes
+configure:18035: checking imath.h presence
+configure:18035: gcc -E -I./imath_wrap  conftest.c
+configure:18035: $? = 0
+configure:18035: result: yes
+configure:18035: checking for imath.h
+configure:18035: result: yes
+configure:18043: checking gmp_compat.h usability
+configure:18043: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math -I./imath_wrap  conftest.c >&5
+configure:18043: $? = 0
+configure:18043: result: yes
+configure:18043: checking gmp_compat.h presence
+configure:18043: gcc -E -I./imath_wrap  conftest.c
+configure:18043: $? = 0
+configure:18043: result: yes
+configure:18043: checking for gmp_compat.h
+configure:18043: result: yes
+configure:18101: checking whether ffs is declared
+configure:18101: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
+configure:18101: $? = 0
+configure:18101: result: yes
+configure:18113: checking whether __builtin_ffs is declared
+configure:18113: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
+configure:18113: $? = 0
+configure:18113: result: yes
+configure:18124: checking whether _BitScanForward is declared
+configure:18124: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
 conftest.c:29:10: fatal error: intrin.h: No such file or directory
  #include <intrin.h>
           ^~~~~~~~~~
 compilation terminated.
-configure:18130: $? = 1
+configure:18124: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "isl"
@@ -927,24 +927,24 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:18130: result: no
-configure:18147: checking whether strcasecmp is declared
-configure:18147: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
-configure:18147: $? = 0
-configure:18147: result: yes
-configure:18158: checking whether strncasecmp is declared
-configure:18158: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
-configure:18158: $? = 0
-configure:18158: result: yes
-configure:18170: checking whether _stricmp is declared
-configure:18170: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
+configure:18124: result: no
+configure:18141: checking whether strcasecmp is declared
+configure:18141: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
+configure:18141: $? = 0
+configure:18141: result: yes
+configure:18152: checking whether strncasecmp is declared
+configure:18152: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
+configure:18152: $? = 0
+configure:18152: result: yes
+configure:18164: checking whether _stricmp is declared
+configure:18164: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:41:10: error: '_stricmp' undeclared (first use in this function); did you mean 'strncmp'?
    (void) _stricmp;
           ^~~~~~~~
           strncmp
 conftest.c:41:10: note: each undeclared identifier is reported only once for each function it appears in
-configure:18170: $? = 1
+configure:18164: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "isl"
@@ -993,16 +993,16 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:18170: result: no
-configure:18181: checking whether _strnicmp is declared
-configure:18181: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
+configure:18164: result: no
+configure:18175: checking whether _strnicmp is declared
+configure:18175: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:42:10: error: '_strnicmp' undeclared (first use in this function); did you mean 'strncmp'?
    (void) _strnicmp;
           ^~~~~~~~~
           strncmp
 conftest.c:42:10: note: each undeclared identifier is reported only once for each function it appears in
-configure:18181: $? = 1
+configure:18175: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "isl"
@@ -1052,20 +1052,20 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:18181: result: no
-configure:18201: checking whether snprintf is declared
-configure:18201: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
-configure:18201: $? = 0
-configure:18201: result: yes
-configure:18212: checking whether _snprintf is declared
-configure:18212: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
+configure:18175: result: no
+configure:18195: checking whether snprintf is declared
+configure:18195: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
+configure:18195: $? = 0
+configure:18195: result: yes
+configure:18206: checking whether _snprintf is declared
+configure:18206: gcc -c -O3 -fomit-frame-pointer -malign-double -fstrict-aliasing -ffast-math  conftest.c >&5
 conftest.c: In function 'main':
 conftest.c:44:10: error: '_snprintf' undeclared (first use in this function); did you mean 'vsnprintf'?
    (void) _snprintf;
           ^~~~~~~~~
           vsnprintf
 conftest.c:44:10: note: each undeclared identifier is reported only once for each function it appears in
-configure:18212: $? = 1
+configure:18206: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "isl"
@@ -1117,37 +1117,37 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:18212: result: no
-configure:18309: checking which clang to use
-configure:18311: result: no
-configure:18905: checking for C compiler vendor
-configure:18936: result: gnu
-configure:18957: checking our pkgconfig libname
-configure:18965: result: isl
-configure:18968: checking our pkgconfig version
-configure:18976: result: 0.16.1
-configure:18979: checking our pkgconfig_libdir
-configure:18986: result: ${libdir}/pkgconfig
-configure:18989: result: expanded our pkgconfig_libdir... /home/KALYANBHETWAL/IEGenLib_kalyan/IEGenLib/lib/installed/lib/pkgconfig
-configure:18993: checking our pkgconfig_libfile
-configure:18999: result: isl.pc
-configure:19006: checking our package / suffix
-configure:19010: result: isl / 
-configure:19013: checking our pkgconfig description
-configure:19020: result: isl Library
-configure:19023: checking our pkgconfig requires
-configure:19028: result: 
-configure:19031: checking our pkgconfig ext libs
-configure:19038: result: -lisl
-configure:19041: checking our pkgconfig cppflags
-configure:19046: result: -std=gnu99 -I./imath_wrap
-configure:19049: checking our pkgconfig ldflags
-configure:19054: result: 
-configure:19094: result: noninstalled pkgconfig -L /home/KALYANBHETWAL/IEGenLib_kalyan/IEGenLib/lib/isl/.libs
-configure:19129: result: noninstalled pkgconfig -I /home/KALYANBHETWAL/IEGenLib_kalyan/IEGenLib/lib/isl/./include
-configure:19297: checking that generated files are newer than configure
-configure:19303: result: done
-configure:19358: creating ./config.status
+configure:18206: result: no
+configure:18303: checking which clang to use
+configure:18305: result: no
+configure:18899: checking for C compiler vendor
+configure:18930: result: gnu
+configure:18951: checking our pkgconfig libname
+configure:18959: result: isl
+configure:18962: checking our pkgconfig version
+configure:18970: result: 0.16.1
+configure:18973: checking our pkgconfig_libdir
+configure:18980: result: ${libdir}/pkgconfig
+configure:18983: result: expanded our pkgconfig_libdir... /home/KALYANBHETWAL/IEGenLib_kalyan/IEGenLib/lib/installed/lib/pkgconfig
+configure:18987: checking our pkgconfig_libfile
+configure:18993: result: isl.pc
+configure:19000: checking our package / suffix
+configure:19004: result: isl / 
+configure:19007: checking our pkgconfig description
+configure:19014: result: isl Library
+configure:19017: checking our pkgconfig requires
+configure:19022: result: 
+configure:19025: checking our pkgconfig ext libs
+configure:19032: result: -lisl
+configure:19035: checking our pkgconfig cppflags
+configure:19040: result: -std=gnu99 -I./imath_wrap
+configure:19043: checking our pkgconfig ldflags
+configure:19048: result: 
+configure:19088: result: noninstalled pkgconfig -L /home/KALYANBHETWAL/IEGenLib_kalyan/IEGenLib/lib/isl/.libs
+configure:19123: result: noninstalled pkgconfig -I /home/KALYANBHETWAL/IEGenLib_kalyan/IEGenLib/lib/isl/./include
+configure:19291: checking that generated files are newer than configure
+configure:19297: result: done
+configure:19352: creating ./config.status
 
 ## ---------------------- ##
 ## Running config.status. ##
@@ -1290,7 +1290,7 @@ ax_cv_c_flags__mpentiumpro=no
 ax_cv_gcc_archflag=unknown
 ax_cv_gcc_warn_unused_result=yes
 ax_cv_gcc_x86_cpuid_0=16:756e6547:6c65746e:49656e69
-ax_cv_gcc_x86_cpuid_1=50654:2a200800:7ffefbff:bfebfbff
+ax_cv_gcc_x86_cpuid_1=50654:24200800:7ffefbff:bfebfbff
 lt_cv_ar_at_file=@
 lt_cv_deplibs_check_method=pass_all
 lt_cv_file_magic_cmd='$MAGIC_CMD'

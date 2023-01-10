@@ -105,6 +105,7 @@ class Computation {
     static std::vector<std::string> getSetConstraints(Set* set);
 
     //! Add statement to the end of this Computation
+    //! /param stmt (not adopted)
     void addStmt(Stmt* stmt);
     //! Insert statement at given index.
     //! This may modify the statement to fit the needs of the Computation.
