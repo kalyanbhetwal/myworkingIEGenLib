@@ -80,10 +80,11 @@ def readFile(fileName):
 
     parflowio.addStmt(s1)
 
-    dataReads2 = iegenlib.PairVector([])
-    dataWrites2 =  iegenlib.PairVector([ ("m_nx","{[0]->[0]}"),\
+
+    dataReads2 =  iegenlib.PairVector([ ("m_nx","{[0]->[0]}"),\
                                         ("m_ny","{[0]->[0]}"),\
                                         ("m_nz","{[0]->[0]}")])
+    dataWrites2 = iegenlib.PairVector([("m_data","{[0]->[0]}")])
 
 
 
@@ -95,7 +96,7 @@ def readFile(fileName):
     parflowio.addStmt(s2)
 
 
-    dataReads3 = iegenlib.PairVector([])
+    dataReads3 = iegenlib.PairVector([("m_numSubgrids","{[nsg]->[0]}")])
     dataWrites3 =  iegenlib.PairVector([("x","{[nsg]->[0]}"),\
                                         ("y","{[nsg]->[0]}"),\
                                         ("z","{[nsg]->[0]}"),\
@@ -114,7 +115,7 @@ def readFile(fileName):
     parflowio.addStmt(s3)  
 
 
-    dataReads4 = iegenlib.PairVector([])
+    dataReads4 = iegenlib.PairVector([("qq" ,"{[nsg]->[0]}")])
     dataWrites4 =  iegenlib.PairVector([ ("m_numSubgrids","{[nsg]->[0]}"),\
                                         ("m_ny","{[nsg]->[0]}"),\
                                         ("m_nx","{[nsg]->[0]}"),\
@@ -132,8 +133,8 @@ def readFile(fileName):
 
 
 
-    dataReads5 = iegenlib.PairVector([])
-    dataWrites5 =  iegenlib.PairVector([ ("m_numSubgrids","{[nsg]->[0]}"),\
+   
+    dataReads5 =  iegenlib.PairVector([ ("m_numSubgrids","{[nsg]->[0]}"),\
                                         ("m_ny","{[nsg]->[0]}"),\
                                         ("m_nx","{[nsg]->[0]}"),\
                                         ("nx","{[nsg]->[0]}"),\
@@ -142,7 +143,10 @@ def readFile(fileName):
                                         ("m_data","{[nsg,k,i]->[0]}"),\
                                         ("qq","{[nsg,k,i]->[0]}")])
 
-
+    dataWrites5 = iegenlib.PairVector([("m_fp", "{[nsg] -> [0]}"),\
+                ("buf", "{[nsg,k,i] -> [0]}"),\
+                ("index", "{[nsg,k,i] -> [0]}")])
+                
     s5 = iegenlib.Stmt("index = qq+k*m_nx*m_ny+i*m_nx; buf = (uint64_t*)&(m_data[index]);read_count = fread(buf,8,nx,m_fp);",
                         "{[nsg,k,i] : 0 <= k < nz && 0<=i<ny && 0 <= nsg < m_numSubgrids}",
                         "{[nsg,k,i]->[3, nsg,2, k, 0,i,0]}",
@@ -151,13 +155,16 @@ def readFile(fileName):
     parflowio.addStmt(s5)  
 
 
-    dataReads6 = iegenlib.PairVector([])
-    dataWrites6 =  iegenlib.PairVector([ ("m_numSubgrids","{[nsg]->[0]}"),\
+    
+    dataReads6 =  iegenlib.PairVector([ ("m_numSubgrids","{[nsg]->[0]}"),\
                                         ("buf","{[nsg,k,i]->[0]}"),\
                                         ("nx","{[nsg,k,i,j]->[0]}"),\
                                         ("ny","{[nsg,k,i,j]->[0]}"),\
                                          ("nz","{[nsg,k,i,j]->[0]}"),\
                                         ("index","{[nsg,k,i,j]->[0]}")])
+
+    dataWrites6 = iegenlib.PairVector([ ("tmp", "{[nsg,k,i,j] -> [0]}"),\
+                                        ("m_data", "{[nsg,k,i,j] -> [0]}")])
 
 
     s6 = iegenlib.Stmt("tmp = buf[j];  tmp = bswap64(tmp);  m_data[index+j] = *(double*)(&tmp);",
