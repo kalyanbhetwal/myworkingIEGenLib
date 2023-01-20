@@ -13,8 +13,8 @@ def comp1():
     dataReads = iegenlib.PairVector([])
     dataWrites =  iegenlib.PairVector([("foo","{[0]->[0]}")])
     stmt1 = iegenlib.Stmt("foo=1;",
-                    "{[0]}",
-                    "{[0]->[0]}",
+                    "{[t]:0<t<N}",
+                    "{[t]->[0,t,0]}",
                     dataReads,
                     dataWrites)
     #print(stmt1)
@@ -28,8 +28,8 @@ def comp2():
     dataReads = iegenlib.PairVector([])
     dataWrites =  iegenlib.PairVector([("foo","{[0]->[0]}")])
     stmt1 = iegenlib.Stmt("bar=1;",
-                    "{[0]}",
-                    "{[0]->[0]}",
+                    "{[t,a,b]:0<t<N && 0<a<B && 0<b<X}",
+                    "{[t,a,b]->[0,t,0,a,0,b,0]}",
                     dataReads,
                     dataWrites)
     spsComp2.addStmt(stmt1)
@@ -42,7 +42,7 @@ compy = iegenlib.Computation()
 compy = comp2()
 
 compx.appendComputation(compy, "{[0]}","{[0]->[1]}")
-print(compx.printInfo())
-#print(compy.codeGen())
+#print(compx.printInfo())
+print(compy.codeGen())
 #pprint(inspect.getmembers(comp))
 #comp.printInfo()

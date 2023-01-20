@@ -1,4 +1,4 @@
-# Install script for directory: /home/KALYANBHETWAL/IEGenLib_kalyan/IEGenLib/src/bindings
+# Install script for directory: /home/KALYANBHETWAL/myworkingIEGenLib/IEGenLib/src/bindings
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,12 +44,12 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bindings/_iegenlib.so"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bindings" TYPE SHARED_LIBRARY FILES "/home/KALYANBHETWAL/IEGenLib_kalyan/IEGenLib/build/src/bindings/_iegenlib.so")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bindings" TYPE SHARED_LIBRARY FILES "/home/KALYANBHETWAL/myworkingIEGenLib/IEGenLib/build/src/bindings/_iegenlib.so")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bindings/_iegenlib.so" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bindings/_iegenlib.so")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bindings/_iegenlib.so"
-         OLD_RPATH "/home/KALYANBHETWAL/IEGenLib_kalyan/IEGenLib/lib/omega/install/lib:/home/KALYANBHETWAL/IEGenLib_kalyan/IEGenLib/lib/installed/lib:"
+         OLD_RPATH "/home/KALYANBHETWAL/myworkingIEGenLib/IEGenLib/lib/omega/install/lib:/home/KALYANBHETWAL/myworkingIEGenLib/IEGenLib/lib/installed/lib:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bindings/_iegenlib.so")
@@ -61,7 +61,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bindings" TYPE FILE FILES "/home/KALYANBHETWAL/IEGenLib_kalyan/IEGenLib/build/src/bindings/iegenlib.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bindings" TYPE FILE FILES "/home/KALYANBHETWAL/myworkingIEGenLib/IEGenLib/build/src/bindings/iegenlib.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
